@@ -5,19 +5,16 @@ import "dotenv/config";
 const config: HardhatUserConfig = {
   solidity: "0.8.19",
   networks: {
-    goerli: {
-      url: process.env.SEPOLIARPC,
+    polygon: {
+      url: process.env.POLYGONRPC,
       //@ts-ignore
-      accounts: [process.env.PRIVATE_KEY_1],
-    },
-    hardhat: {
-      forking: {
-        url: "https://sepolia.infura.io/v3/cf05af5bacf84b28aa67c6dea5d1d5c2",
-      },
+      accounts: [process.env.PRIVATE_KEY],
     },
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_KEY,
+    apiKey: {
+      polygonMumbai: process.env.POLYGONSCAN_KEY,
+    },
   },
 };
 
